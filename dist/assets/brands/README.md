@@ -15,7 +15,7 @@ JPG is expected; to use PNG/WEBP, change the extension in `brands.js`.
 - donghae-skin-product-collection.webp ✓   ← brand cover (Product Collection poster)
 - first-light-serum.webp ✓
 - calm-current-essence.webp ✓
-- silk-tide-cream.webp   (not supplied — collection poster used for now)
+- silk-tide-cream.webp ✓
 - omega-balance-serum.webp ✓   (product hidden for now)
 - shore-veil-cream.webp ✓   (product hidden for now)
 

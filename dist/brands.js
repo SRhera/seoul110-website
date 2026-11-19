@@ -67,8 +67,7 @@ const BRANDS = [
     products: [
       { id: 'first-light-serum',    visible: true, name: 'First Light Serum',    image: 'assets/brands/donghae-skin/first-light-serum.webp',    description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
       { id: 'calm-current-essence', visible: true, name: 'Calm Current Essence', image: 'assets/brands/donghae-skin/calm-current-essence.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      // Hidden: no own image (it would repeat the collection poster). Add silk-tide-cream.webp, point image to it and set visible: true.
-      { id: 'silk-tide-cream',      visible: false, name: 'Silk Tide Cream',      image: 'assets/brands/donghae-skin/donghae-skin-product-collection.webp',      description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
+            { id: 'silk-tide-cream',      visible: true, name: 'Silk Tide Cream',      image: 'assets/brands/donghae-skin/silk-tide-cream.webp',      description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
       // Added from the supplied images.
       { id: 'omega-balance-serum',  visible: true, name: 'Omega Balance Serum', image: 'assets/brands/donghae-skin/omega-balance-serum.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
       { id: 'shore-veil-cream',     visible: true, name: 'Shore Veil Cream',    image: 'assets/brands/donghae-skin/shore-veil-cream.webp',    description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' }
