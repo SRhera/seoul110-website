@@ -46,11 +46,11 @@ const BRANDS = [
     products: [
       { id: 'radiance-repair-cream',    visible: true, name: 'Radiance Repair Cream',    image: 'assets/brands/haruro/radiance-repair-cream.webp',    description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
       { id: 'hydra-barrier-cleanser',   visible: true, name: 'Hydra Barrier Cleanser',   image: 'assets/brands/haruro/hydra-barrier-cleanser.webp',   description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      // Toner and toner pad appear together in one image: both products use the same file (not split).
-      { id: 'hydra-infusion-toner',     visible: true, name: 'Hydra Infusion Toner',     image: 'assets/brands/haruro/hydra-infusion-toner-and-pad.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      { id: 'hydra-infusion-toner-pad', visible: true, name: 'Hydra Infusion Toner Pad', image: 'assets/brands/haruro/hydra-infusion-toner-and-pad.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      // Seen in the supplied images but not in the requested line-up — set visible: true to publish.
-      { id: 'dna-recovery-serum', visible: false, name: 'DNA Recovery Serum', image: 'assets/brands/haruro/dna-recovery-serum.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' }
+      // Toner and toner pad appear together in one image, so they are shown as ONE entry (not split, not repeated).
+      { id: 'hydra-infusion-toner',     visible: true, name: 'Hydra Infusion Toner & Toner Pad',     image: 'assets/brands/haruro/hydra-infusion-toner-and-pad.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
+      { id: 'hydra-infusion-toner-pad', visible: false, name: 'Hydra Infusion Toner Pad', image: 'assets/brands/haruro/hydra-infusion-toner-and-pad.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
+      // Added from the supplied images.
+      { id: 'dna-recovery-serum', visible: true, name: 'DNA Recovery Serum', image: 'assets/brands/haruro/dna-recovery-serum.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' }
     ]
   },
   {
@@ -67,11 +67,11 @@ const BRANDS = [
     products: [
       { id: 'first-light-serum',    visible: true, name: 'First Light Serum',    image: 'assets/brands/donghae-skin/first-light-serum.webp',    description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
       { id: 'calm-current-essence', visible: true, name: 'Calm Current Essence', image: 'assets/brands/donghae-skin/calm-current-essence.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      // No separate image yet: uses the collection poster it appears in. Replace with silk-tide-cream.webp when available.
-      { id: 'silk-tide-cream',      visible: true, name: 'Silk Tide Cream',      image: 'assets/brands/donghae-skin/donghae-skin-product-collection.webp',      description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      // Seen in the supplied images but not in the requested line-up — set visible: true to publish.
-      { id: 'omega-balance-serum',  visible: false, name: 'Omega Balance Serum', image: 'assets/brands/donghae-skin/omega-balance-serum.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      { id: 'shore-veil-cream',     visible: false, name: 'Shore Veil Cream',    image: 'assets/brands/donghae-skin/shore-veil-cream.webp',    description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' }
+      // Hidden: no own image (it would repeat the collection poster). Add silk-tide-cream.webp, point image to it and set visible: true.
+      { id: 'silk-tide-cream',      visible: false, name: 'Silk Tide Cream',      image: 'assets/brands/donghae-skin/donghae-skin-product-collection.webp',      description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
+      // Added from the supplied images.
+      { id: 'omega-balance-serum',  visible: true, name: 'Omega Balance Serum', image: 'assets/brands/donghae-skin/omega-balance-serum.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
+      { id: 'shore-veil-cream',     visible: true, name: 'Shore Veil Cream',    image: 'assets/brands/donghae-skin/shore-veil-cream.webp',    description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' }
     ]
   },
   {
@@ -103,10 +103,10 @@ const BRANDS = [
     products: [
       { id: 'cell-recovery-essence',  visible: true, name: 'Cell Recovery Essence',  image: 'assets/brands/anyu/cell-recovery-essence.webp',  description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
       { id: 'protein-restore-cream',  visible: true, name: 'Protein Restore Cream',  image: 'assets/brands/anyu/protein-restore-cream.webp',  description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      // Seen in the supplied images but not in the requested line-up — set visible: true to publish.
-      { id: 'cell-recovery-ampoule',          visible: false, name: 'Cell Recovery Ampoule',          image: 'assets/brands/anyu/cell-recovery-ampoule.webp',          description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      { id: 'lift-restore-ampoule',           visible: false, name: 'Lift Restore Ampoule',           image: 'assets/brands/anyu/lift-restore-ampoule.webp',           description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
-      { id: 'radiance-capsule-sleeping-mask', visible: false, name: 'Radiance Capsule Sleeping Mask', image: 'assets/brands/anyu/radiance-capsule-sleeping-mask.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' }
+      // Added from the supplied images.
+      { id: 'cell-recovery-ampoule',          visible: true, name: 'Cell Recovery Ampoule',          image: 'assets/brands/anyu/cell-recovery-ampoule.webp',          description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
+      { id: 'lift-restore-ampoule',           visible: true, name: 'Lift Restore Ampoule',           image: 'assets/brands/anyu/lift-restore-ampoule.webp',           description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' },
+      { id: 'radiance-capsule-sleeping-mask', visible: true, name: 'Radiance Capsule Sleeping Mask', image: 'assets/brands/anyu/radiance-capsule-sleeping-mask.webp', description: { ko: '', en: '', zh: '' }, status: '', shopUrl: '' }
     ]
   }
 ];
