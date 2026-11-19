@@ -1,0 +1,9 @@
+{
+  "name": "seoul110-website",
+  "private": true,
+  "description": "SEOUL110 static site (dist/) + inquiry email function (api/contact.js)",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "nodemailer": "6.9.16"
+  }
+}
