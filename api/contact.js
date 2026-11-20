@@ -78,7 +78,7 @@ module.exports = async function handler(req, res) {
   const ip = String(req.headers['x-forwarded-for'] || req.socket?.remoteAddress || 'unknown').split(',')[0].trim();
   if (rateLimited(ip)) return send(res, 429, { ok: false, code: 'rate_limited' });
 
-  const user = process.env.GMAIL_USER, pass = process.env.GMAIL_APP_PASSWORD;
+  const user = (process.env.GMAIL_USER || '').trim(), pass = (process.env.GMAIL_APP_PASSWORD || '').replace(/\s+/g, '');
   const to = process.env.CONTACT_TO || user;
   if (!user || !pass || !to) {
     console.error('[contact] Missing GMAIL_USER / GMAIL_APP_PASSWORD / CONTACT_TO environment variables');
