@@ -6,6 +6,7 @@
  *   GMAIL_USER          sending Gmail account, e.g. seoul110.co@gmail.com
  *   GMAIL_APP_PASSWORD  16-character Google "App password" for that account (NOT the normal password)
  *   CONTACT_TO          inbox that receives inquiries (default: GMAIL_USER)
+ *   AUTO_REPLY          "false" turns off the confirmation email to the visitor (default: on)
  * Optional, only to use a non-Gmail SMTP server:
  *   SMTP_HOST (default smtp.gmail.com) · SMTP_PORT (default 465) · SMTP_SECURE ("false" for STARTTLS/plain)
  */
@@ -18,6 +19,38 @@ const hits = new Map();
 
 const EMAIL_RE = /^[^\s@<>()[\],;:"]+@[^\s@<>()[\],;:"]+\.[^\s@<>()[\],;:"]{2,}$/;
 const LANG_NAMES = { ko: '한국어 Korean', en: 'English', zh: '中文 Chinese' };
+
+/* Confirmation email to the visitor. Fixed text only: nothing the visitor typed is echoed back,
+   so the form cannot be abused to send arbitrary content to other people. */
+const AUTO_REPLY = {
+  ko: {
+    subject: '[SEOUL110] 문의가 접수되었습니다',
+    lines: ['안녕하세요, SEOUL110입니다.', '홈페이지를 통해 보내주신 문의가 정상적으로 접수되었습니다.', '담당자가 내용을 확인한 뒤 영업일 기준 2~3일 이내에 이 이메일 주소로 답변드리겠습니다.', '추가로 전달하실 내용이 있으면 이 메일에 바로 회신해 주세요.', '감사합니다.'],
+    note: '본 메일은 문의 접수 확인을 위해 자동으로 발송되었습니다. 문의하신 적이 없다면 이 메일을 무시하셔도 됩니다.'
+  },
+  en: {
+    subject: '[SEOUL110] We have received your inquiry',
+    lines: ['Hello, this is SEOUL110.', 'Thank you for contacting us through our website. Your inquiry has been received.', 'Our team will review it and reply to this email address within 2–3 business days.', 'If you would like to add anything, simply reply to this email.', 'Best regards,'],
+    note: 'This is an automatic confirmation of your inquiry. If you did not contact us, please ignore this email.'
+  },
+  zh: {
+    subject: '[SEOUL110] 我们已收到您的咨询',
+    lines: ['您好，这里是 SEOUL110。', '感谢您通过官网与我们联系，您的咨询已成功提交。', '我们的负责人确认内容后，将在 2–3 个工作日内回复至此邮箱。', '如需补充信息，请直接回复本邮件。', '谢谢。'],
+    note: '本邮件为咨询提交后的自动确认邮件。如果您并未提交咨询，请忽略本邮件。'
+  }
+};
+
+function autoReplyMail(lang, from, replyTo) {
+  const t = AUTO_REPLY[lang] || AUTO_REPLY.en;
+  const sign = ['SEOUL110', 'Seoul, Korea', replyTo];
+  const text = t.lines.join('\n\n') + '\n\n' + sign.join('\n') + '\n\n—\n' + t.note;
+  const html = `<div style="font-family:Arial,sans-serif;font-size:15px;color:#111;line-height:1.7;max-width:560px">
+${t.lines.map(l => `<p style="margin:0 0 14px">${esc(l)}</p>`).join('')}
+<p style="margin:22px 0 0;border-top:2px solid #098774;padding-top:12px"><b>SEOUL110</b><br>Seoul, Korea<br>
+<a href="mailto:${esc(replyTo)}" style="color:#098774">${esc(replyTo)}</a></p>
+<p style="color:#888;font-size:12px;margin-top:24px">${esc(t.note)}</p></div>`;
+  return { from, replyTo, subject: t.subject, text, html, headers: { 'Auto-Submitted': 'auto-replied', 'X-Auto-Response-Suppress': 'All' } };
+}
 
 function send(res, status, body) {
   res.statusCode = status;
@@ -118,9 +151,18 @@ module.exports = async function handler(req, res) {
       subject, text, html
     });
     if (!info.accepted || !info.accepted.length) throw new Error('No recipient accepted the message');
-    return send(res, 200, { ok: true });
   } catch (e) {
     console.error('[contact] send failed:', e && (e.code || ''), e && e.message);
     return send(res, 502, { ok: false, code: 'send_failed' });
   }
+
+  // The inquiry is delivered. The confirmation to the visitor is best effort and never turns success into failure.
+  if (process.env.AUTO_REPLY !== 'false') {
+    try {
+      await transporter.sendMail({ ...autoReplyMail(d.lang, { name: 'SEOUL110', address: user }, to), to: d.email });
+    } catch (e) {
+      console.error('[contact] auto-reply failed:', e && (e.code || ''), e && e.message);
+    }
+  }
+  return send(res, 200, { ok: true });
 };
