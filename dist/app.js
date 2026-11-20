@@ -3,7 +3,8 @@
  * CONFIG: fill in once confirmed.
  */
 const CONFIG = {
-  CONTACT_EMAIL: '',   // company representative email (inquiry form sends here)
+  CONTACT_EMAIL: 'seoul110.co@gmail.com',  // company email shown on the site and used for the direct-mail link
+  CONTACT_ENDPOINT: '/api/contact',         // server function that delivers the inquiry form to the company inbox
   SHOP_URL: ''         // SEOUL CHANGO (서울창고) shop address
 };
 
@@ -98,7 +99,16 @@ const T = {
         lead: 'Tell us about your company, market and plans. We will reply by email.',
         info: [['Email', 'To be announced'], ['Location', 'Seoul, Korea'], ['Languages', 'Korean · English · Chinese']],
         form: { name: 'Name', company: 'Company', email: 'Email', country: 'Country / Market', interest: 'Area of interest', message: 'Message', agree: 'I agree to the collection and use of my personal information for handling this inquiry.', send: 'Send inquiry', options: ['Cosmetics OEM·ODM', 'Brand & product inquiry', 'Education', 'Medical & aesthetic devices', 'Global business', 'Other'] },
-        noEmail: 'Our company email address is not connected yet. Please try again later.'
+        status: {
+          sending: 'Sending…',
+          success: 'Thank you. Your inquiry has been received. We will reply to the email address you entered.',
+          duplicate: 'This inquiry has already been sent. To send another, please change the message.',
+          invalid: 'Please check the required fields and your email address.',
+          too_fast: 'Please take a moment to review your inquiry, then press send again.',
+          rate_limited: 'Too many inquiries were sent in a short time. Please try again in a few minutes.',
+          error: 'Your inquiry could not be sent. Your message is still here — please try again, or email us directly.'
+        },
+        direct: 'Prefer email? Write to us directly:'
       }
     }
   },
@@ -180,7 +190,16 @@ const T = {
         lead: '회사, 시장, 계획을 알려주세요. 이메일로 답변드립니다.',
         info: [['이메일', '추후 안내'], ['위치', '대한민국 서울'], ['상담 언어', '한국어 · 영어 · 중국어']],
         form: { name: '이름', company: '회사명', email: '이메일', country: '국가 / 시장', interest: '관심 분야', message: '문의 내용', agree: '문의 처리를 위한 개인정보 수집·이용에 동의합니다.', send: '문의 보내기', options: ['화장품 OEM·ODM', '브랜드·제품 문의', '교육사업', '메디컬·에스테틱 디바이스', '글로벌 비즈니스', '기타'] },
-        noEmail: '회사 대표 이메일이 아직 연결되지 않았습니다. 잠시 후 다시 시도해 주세요.'
+        status: {
+          sending: '전송 중…',
+          success: '문의가 접수되었습니다. 입력하신 이메일로 답변드리겠습니다.',
+          duplicate: '이미 전송된 문의입니다. 추가 문의는 내용을 수정한 뒤 보내주세요.',
+          invalid: '필수 항목과 이메일 주소를 확인해 주세요.',
+          too_fast: '문의 내용을 한 번 더 확인하신 뒤 다시 보내기를 눌러주세요.',
+          rate_limited: '짧은 시간에 많은 문의가 전송되었습니다. 몇 분 후 다시 시도해 주세요.',
+          error: '문의를 전송하지 못했습니다. 작성하신 내용은 그대로 남아 있으니 다시 시도하시거나 이메일로 직접 보내주세요.'
+        },
+        direct: '이메일로 직접 문의하기:'
       }
     }
   },
@@ -262,7 +281,16 @@ const T = {
         lead: '请告诉我们您的公司、市场与计划，我们将通过邮件回复。',
         info: [['邮箱', '待公布'], ['地址', '韩国首尔'], ['语言', '韩语 · 英语 · 中文']],
         form: { name: '姓名', company: '公司名称', email: '邮箱', country: '国家 / 市场', interest: '感兴趣的业务', message: '咨询内容', agree: '我同意为处理本次咨询而收集和使用个人信息。', send: '发送咨询', options: ['化妆品 OEM·ODM', '品牌与产品咨询', '教育事业', '医疗美容仪器', '全球业务', '其他'] },
-        noEmail: '公司官方邮箱尚未开通，请稍后再试。'
+        status: {
+          sending: '发送中…',
+          success: '您的咨询已收到。我们将回复至您填写的邮箱。',
+          duplicate: '该咨询已发送。如需再次咨询，请修改内容后发送。',
+          invalid: '请检查必填项和邮箱地址。',
+          too_fast: '请再次确认咨询内容后，重新点击发送。',
+          rate_limited: '短时间内发送次数过多，请几分钟后再试。',
+          error: '咨询未能发送。您填写的内容仍保留在此，请重试或直接发送邮件给我们。'
+        },
+        direct: '也可直接发送邮件：'
       }
     }
   }
@@ -449,8 +477,10 @@ function contact(t) {
       <label>${f.interest}<select name="interest">${f.options.map(o => `<option>${o}</option>`).join('')}</select></label>
       <label>${f.message} *<textarea name="message" required></textarea></label>
       <label class="check"><input type="checkbox" name="agree" required><span>${f.agree}</span></label>
-      <div><button class="btn" type="submit">${f.send} <span aria-hidden="true">→</span></button></div>
-      <div id="formNote" class="notice" role="status" hidden></div>
+      <div class="hp" aria-hidden="true"><label>Leave this field empty<input name="hp_field" tabindex="-1" autocomplete="off"></label></div>
+      <div><button class="btn" type="submit"><span class="btn-label">${f.send}</span> <span aria-hidden="true">→</span></button></div>
+      <div id="formNote" class="notice" role="status" aria-live="polite" hidden></div>
+      ${CONFIG.CONTACT_EMAIL ? `<p class="direct">${p.direct} <a href="mailto:${CONFIG.CONTACT_EMAIL}">${CONFIG.CONTACT_EMAIL}</a></p>` : ''}
     </form>
   </section>`;
 }
@@ -613,24 +643,76 @@ function bind(t) {
   const form = $('#contactForm');
   if (form && inquiryPrefill) {
     const [bn, pn] = inquiryPrefill.split('|');
+    contactDraft = null;
     form.interest.selectedIndex = 1;
     form.message.value = `Brand: ${bn}${pn ? `\nProduct: ${pn}` : ''}\n\n`;
     inquiryPrefill = null;
   }
-  if (form) form.onsubmit = e => {
-    e.preventDefault();
-    if (!form.reportValidity()) return;
-    const d = Object.fromEntries(new FormData(form));
-    if (!CONFIG.CONTACT_EMAIL) { const n = $('#formNote'); n.hidden = false; n.textContent = t.pages.contact.noEmail; return; }
-    const subject = `[SEOUL110 Partnership] ${d.company} / ${d.interest}`;
-    const body = `Name: ${d.name}\nCompany: ${d.company}\nEmail: ${d.email}\nCountry / Market: ${d.country}\nInterest: ${d.interest}\n\n${d.message}`;
-    location.href = `mailto:${CONFIG.CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  };
+  if (form) bindContactForm(form, t.pages.contact);
   const els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { rootMargin: '0px 0px -6% 0px' });
     els.forEach(el => io.observe(el));
   } else els.forEach(el => el.classList.add('in'));
+}
+
+/* ---------- Inquiry form: sends through the server (CONFIG.CONTACT_ENDPOINT), never the visitor's mail app ---------- */
+const FIELDS = ['name', 'company', 'email', 'country', 'interest', 'message'];
+let contactDraft = null, contactSending = false, contactLastSent = '';
+try { contactLastSent = sessionStorage.getItem('seoul110-inquiry-sent') || ''; } catch (e) {}
+const fingerprint = d => FIELDS.map(k => (d[k] || '').trim().toLowerCase()).join('\u241f');
+
+function bindContactForm(form, p) {
+  const note = $('#formNote'), btn = form.querySelector('button[type=submit]'), label = btn.querySelector('.btn-label');
+  const sendLabel = label.textContent, openedAt = Date.now();
+  const show = (kind, msg) => { note.hidden = false; note.className = `notice ${kind}`; note.textContent = msg; };
+  // Keep what was typed across re-renders (e.g. language switch) and failed attempts.
+  if (contactDraft) {
+    FIELDS.forEach(k => { if (contactDraft[k] != null) form[k].value = contactDraft[k]; });
+    form.agree.checked = !!contactDraft.agree;
+  }
+  form.addEventListener('input', () => {
+    contactDraft = Object.fromEntries(FIELDS.map(k => [k, form[k].value]));
+    contactDraft.agree = form.agree.checked;
+  });
+  const setSending = on => {
+    contactSending = on;
+    btn.disabled = on; form.setAttribute('aria-busy', on);
+    label.textContent = on ? p.status.sending : sendLabel;
+  };
+  if (contactSending) setSending(true);
+
+  form.onsubmit = async e => {
+    e.preventDefault();
+    if (contactSending) return;                        // no double submit while a request is in flight
+    if (!form.reportValidity()) { show('error', p.status.invalid); return; }
+    const d = Object.fromEntries(FIELDS.map(k => [k, form[k].value.trim()]));
+    if (fingerprint(d) === contactLastSent) { show('error', p.status.duplicate); return; }
+    setSending(true); show('pending', p.status.sending);
+    const ctrl = 'AbortController' in window ? new AbortController() : null;
+    const timer = ctrl && setTimeout(() => ctrl.abort(), 25000);
+    let code = 'error';
+    try {
+      const r = await fetch(CONFIG.CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...d, agree: form.agree.checked, lang, hp_field: form.hp_field.value, elapsed: Date.now() - openedAt }),
+        signal: ctrl && ctrl.signal
+      });
+      const res = await r.json().catch(() => ({}));
+      code = r.ok && res.ok === true ? 'success' : (res.code || 'error');
+    } catch (err) { code = 'error'; }
+    clearTimeout(timer);
+    setSending(false);
+    if (code === 'success') {                          // only after the server confirmed delivery
+      contactLastSent = fingerprint(d);
+      try { sessionStorage.setItem('seoul110-inquiry-sent', contactLastSent); } catch (e) {}
+      contactDraft = null; form.reset();
+      show('ok', p.status.success);
+    } else {
+      show('error', p.status[code] || p.status.error); // form content is kept
+    }
+  };
 }
 
 function toast(msg) {
