@@ -24,10 +24,14 @@ const IMG = {
 
 const T = {
   en: {
+    meaning110: 'The meaning of 110',
+    skip: 'Skip to content',
+    footerPlace: 'SEOUL110 · SEOUL, KOREA', footerRights: '© 2026 SEOUL110. All rights reserved.',
+    heroTitle: { lang: 'en', lines: ['Seoul is a', 'beauty', 'state of mind.'] },
     nav: { about: 'About', business: 'Business', brands: 'Brands', journal: 'Journal', contact: 'Contact', cosmetics: 'Cosmetics OEM·ODM', education: 'Education', global: 'Global Business', news: 'News', schedule: 'Education schedule', inquiry: 'Partnership inquiry', company: 'Company', shop: 'Seoul Chango Shop' },
     philosophy: {
       label: 'Our philosophy',
-      tagLocal: { lang: 'ko', text: '서울, 그리고 그 너머의 모든 가능성.' },
+      tagLocal: { lang: 'en', text: 'Seoul, and everything beyond.' },
       items: [['1', 'Origin', '시작', 'ko'], ['1', 'Philosophy', '철학', 'ko'], ['0', 'Potential', '가능성', 'ko']]
     },
     intro: {
@@ -115,6 +119,10 @@ const T = {
   },
 
   ko: {
+    meaning110: '110의 의미',
+    skip: '본문으로 건너뛰기',
+    footerPlace: '서울 · 대한민국', footerRights: '© 2026 SEOUL110. 모든 권리 보유.',
+    heroTitle: { lang: 'ko', lines: ['아름다움의', '기준을 넘어,', '서울만의 감각으로.'] },
     nav: { about: '회사소개', business: '사업분야', brands: '브랜드', journal: '소식', contact: '문의', cosmetics: '화장품 OEM·ODM', education: '교육사업', global: '글로벌 비즈니스', news: '소식', schedule: '교육 일정', inquiry: '사업 제휴 문의', company: '회사소개', shop: '서울창고 SHOP' },
     philosophy: {
       label: '기업 철학',
@@ -122,28 +130,28 @@ const T = {
       items: [['1', 'Origin', '시작', 'ko'], ['1', 'Philosophy', '철학', 'ko'], ['0', 'Potential', '가능성', 'ko']]
     },
     intro: {
-      kicker: 'About SEOUL110',
+      kicker: 'SEOUL110 소개',
       title: '서울에서 시작하는 뷰티 파트너.',
       body: 'SEOUL110은 한국의 뷰티 전문성을 국내외 파트너와 연결합니다. 맞춤형 화장품 개발과 전문 교육부터 메디컬·에스테틱 디바이스, 글로벌 프로젝트까지 함께합니다.'
     },
     cards: {
-      cosmetics: { label: 'Business 01', title: ['Cosmetics', 'OEM·ODM'], body: '브랜드와 시장에 맞춘 기획·개발·생산 솔루션.' },
-      education: { label: 'Business 02', title: ['Education'], body: '세미나, 한국 방문 연수, 해외 현지 교육.' }
+      cosmetics: { label: '사업 01', title: ['화장품', 'OEM·ODM'], body: '브랜드와 시장에 맞춘 기획·개발·생산 솔루션.' },
+      education: { label: '사업 02', title: ['교육사업'], body: '세미나, 한국 방문 연수, 해외 현지 교육.' }
     },
     global: {
-      kicker: 'Business 03 — Device · Global',
+      kicker: '사업 03 — 디바이스 · 글로벌',
       title: ['서울에서', '세계로.'],
       body: '같은 방향을 보는 파트너와 국경을 넘는 장기 프로젝트를 만듭니다.',
       list: [['메디컬·에스테틱 디바이스', '전문 장비 공급 협력.'], ['해외 프로젝트', '각 시장의 파트너와 함께 만드는 뷰티 비즈니스 프로젝트.'], ['글로벌 파트너십', '현지 파트너와 함께하는 유통·공동 사업.']]
     },
-    shop: { kicker: 'Online shop', body: 'SEOUL110이 직접 운영하는 온라인 쇼핑몰입니다. 생활용품, 건강식품, 기능성 화장품을 국내외 고객에게 선보입니다.', cta: '쇼핑몰 바로가기' },
-    journal: { kicker: 'Journal', title: '소식과 교육 일정', empty: '확정된 소식과 교육 일정을 이곳에 안내합니다.', all: '소식 전체 보기' },
-    cta: { kicker: 'Contact', title: ['함께', '시작하세요.'], body: '시장과 목표를 알려주시면 알맞은 다음 단계를 안내해 드립니다.', btn: '사업 제휴 문의' },
+    shop: { kicker: '온라인 쇼핑몰', body: 'SEOUL110이 직접 운영하는 온라인 쇼핑몰입니다. 생활용품, 건강식품, 기능성 화장품을 국내외 고객에게 선보입니다.', cta: '쇼핑몰 바로가기' },
+    journal: { kicker: '소식', title: '소식과 교육 일정', empty: '확정된 소식과 교육 일정을 이곳에 안내합니다.', all: '소식 전체 보기' },
+    cta: { kicker: '문의', title: ['함께', '시작하세요.'], body: '시장과 목표를 알려주시면 알맞은 다음 단계를 안내해 드립니다.', btn: '사업 제휴 문의' },
     brandsUi: {
-      kicker: 'Brands', title: '각기 다른 감각으로 만나는 뷰티.',
+      kicker: '브랜드', title: '각기 다른 감각으로 만나는 뷰티.',
       body: '서로 다른 일상과 취향을 담은 브랜드와 제품을 만나보세요.',
       explore: '브랜드 살펴보기', lineup: '제품 라인업', details: '제품 상세', viewDetail: '상세 보기',
-      inquiryKicker: 'Brand & product inquiry', inquiryTitle: '이 브랜드에 대해 문의하세요.',
+      inquiryKicker: '브랜드·제품 문의', inquiryTitle: '이 브랜드에 대해 문의하세요.',
       inquiryBody: '유통, 제휴, 제품 관련 문의를 남겨주시면 답변드립니다.',
       inquiryBtn: '브랜드 문의', productInquiry: '이 제품 문의하기', others: '다른 브랜드 보기',
       backList: '브랜드 목록', backBrand: '돌아가기:', viewShop: '서울창고에서 보기',
@@ -154,7 +162,7 @@ const T = {
     shopPending: '서울창고 쇼핑몰은 공식 주소가 확정되면 이곳에 연결됩니다.',
     pages: {
       about: {
-        kicker: 'About', title: ['서울의 뷰티를', '연결합니다.'],
+        kicker: '회사소개', title: ['서울의 뷰티를', '연결합니다.'],
         lead: 'SEOUL110은 서울에서 시작해 세계의 파트너와 함께하는 뷰티 비즈니스 플랫폼입니다. 파트너의 시장과 목표에 맞춰 제품, 지식, 네트워크를 연결합니다.',
         listTitle: '하는 일',
         list: [['화장품 OEM·ODM', '맞춤형 기획·개발·생산.', 'cosmetics'], ['교육사업', '세미나, 한국 방문 연수, 해외 현지 교육.', 'education'], ['디바이스', '메디컬·에스테틱 장비 공급 협력.', 'global'], ['글로벌', '해외 사업과 파트너십.', 'global']],
@@ -162,7 +170,7 @@ const T = {
         flow: [['경청', '시장, 고객, 목표를 먼저 이해합니다.'], ['설계', '맞는 제품, 교육, 프로젝트를 설계합니다.'], ['실행', '네트워크와 함께 개발하고 전달합니다.'], ['성장', '장기 파트너로 계속 함께합니다.']]
       },
       cosmetics: {
-        kicker: 'Business 01', title: ['화장품', 'OEM·ODM'],
+        kicker: '사업 01', title: ['화장품', 'OEM·ODM'],
         lead: '아이디어 단계부터 시장에 나갈 완제품까지, 맞춤형 기획·개발·생산 솔루션을 제공합니다.',
         listTitle: '서비스',
         list: [['제품 기획', '콘셉트, 타깃 시장, 포지셔닝을 함께 설계합니다.'], ['제형 개발', '브랜드에 맞는 맞춤 제형과 사용감을 개발합니다.'], ['생산', '패키지 제작부터 생산, 납품까지 진행합니다.']],
@@ -170,7 +178,7 @@ const T = {
         flow: [['상담', '브랜드·시장·예산 검토'], ['기획', '제품 콘셉트와 라인업'], ['개발', '제형 개발과 샘플링'], ['생산', '패키지와 제조'], ['출시', '납품과 사후 지원']]
       },
       education: {
-        kicker: 'Business 02', title: ['교육사업'],
+        kicker: '사업 02', title: ['교육사업'],
         lead: '한국 뷰티를 현장에서 배웁니다. 한국과 해외 현지에서 전문가와 팀을 위한 교육을 진행합니다.',
         listTitle: '프로그램',
         list: [['세미나', 'K-뷰티 트렌드, 테크닉, 제품에 관한 세미나.'], ['한국 방문 연수', '서울 현장 방문을 포함한 전문 연수 프로그램.'], ['해외 현지 교육', '현지 파트너와 함께하는 방문 교육.']],
@@ -178,16 +186,16 @@ const T = {
         flow: [['문의', '팀 구성과 목표 공유'], ['프로그램 설계', '주제·일정·방식'], ['교육 진행', '한국 또는 현지'], ['후속 지원', '다음 과정 안내']]
       },
       global: {
-        kicker: 'Business 03', title: ['글로벌', '비즈니스'],
+        kicker: '사업 03', title: ['글로벌', '비즈니스'],
         lead: '디바이스 공급 협력, 해외 사업, 파트너십으로 서울과 세계 시장을 연결합니다.',
         listTitle: '사업 영역',
         list: [['메디컬·에스테틱 디바이스', '전문 장비 공급 협력.'], ['해외 프로젝트', '각 시장의 파트너와 함께 만드는 뷰티 비즈니스 프로젝트.'], ['파트너십', '현지 파트너와 함께하는 유통·공동 사업.']],
         flowTitle: '제휴 과정',
         flow: [['문의', '시장과 관심 분야'], ['검토', '적합성과 기회'], ['협의', '범위와 조건'], ['실행', '런칭과 장기 성장']]
       },
-      journal: { kicker: 'Journal', title: ['소식'], lead: '회사 소식과 확정된 교육 일정을 안내합니다.', tabs: { news: '소식', schedule: '교육 일정' }, emptyTitle: '준비 중입니다', empty: { news: '회사 소식을 이곳에 안내합니다.', schedule: '확정된 교육 일정을 이곳에 안내합니다.' } },
+      journal: { kicker: '소식', title: ['소식'], lead: '회사 소식과 확정된 교육 일정을 안내합니다.', tabs: { news: '소식', schedule: '교육 일정' }, emptyTitle: '준비 중입니다', empty: { news: '회사 소식을 이곳에 안내합니다.', schedule: '확정된 교육 일정을 이곳에 안내합니다.' } },
       contact: {
-        kicker: 'Contact', title: ['사업 제휴', '문의'],
+        kicker: '문의', title: ['사업 제휴', '문의'],
         lead: '회사, 시장, 계획을 알려주세요. 이메일로 답변드립니다.',
         info: [['이메일', '추후 안내'], ['위치', '대한민국 서울'], ['상담 언어', '한국어 · 영어 · 중국어']],
         form: { name: '이름', company: '회사명', email: '이메일', country: '국가 / 시장', interest: '관심 분야', message: '문의 내용', agree: '문의 처리를 위한 개인정보 수집·이용에 동의합니다.', send: '문의 보내기', options: ['화장품 OEM·ODM', '브랜드·제품 문의', '교육사업', '메디컬·에스테틱 디바이스', '글로벌 비즈니스', '기타'] },
@@ -206,6 +214,10 @@ const T = {
   },
 
   zh: {
+    meaning110: '110 的含义',
+    skip: '跳至正文',
+    footerPlace: '韩国 · 首尔', footerRights: '© 2026 SEOUL110. 版权所有。',
+    heroTitle: { lang: 'zh', lines: ['美，超越标准；', '首尔，自成心境。'] },
     nav: { about: '公司介绍', business: '业务领域', brands: '品牌', journal: '新闻', contact: '联系我们', cosmetics: '化妆品 OEM·ODM', education: '教育事业', global: '全球业务', news: '新闻', schedule: '教育日程', inquiry: '商务合作咨询', company: '公司介绍', shop: '首尔仓库 SHOP' },
     philosophy: {
       label: '企业理念',
@@ -213,28 +225,28 @@ const T = {
       items: [['1', 'Origin', '起点', 'zh'], ['1', 'Philosophy', '理念', 'zh'], ['0', 'Potential', '可能性', 'zh']]
     },
     intro: {
-      kicker: 'About SEOUL110',
+      kicker: '关于 SEOUL110',
       title: '您在首尔的美妆合作伙伴。',
       body: 'SEOUL110 将韩国美妆领域的专业经验带给韩国及世界各地的合作伙伴，业务涵盖定制化妆品开发、专业教育、医疗美容仪器及全球项目。'
     },
     cards: {
-      cosmetics: { label: 'Business 01', title: ['Cosmetics', 'OEM·ODM'], body: '根据品牌与市场量身定制的企划、开发与生产解决方案。' },
-      education: { label: 'Business 02', title: ['Education'], body: '研讨会、韩国访问研修及海外当地培训。' }
+      cosmetics: { label: '业务 01', title: ['化妆品', 'OEM·ODM'], body: '根据品牌与市场量身定制的企划、开发与生产解决方案。' },
+      education: { label: '业务 02', title: ['教育事业'], body: '研讨会、韩国访问研修及海外当地培训。' }
     },
     global: {
-      kicker: 'Business 03 — Device · Global',
+      kicker: '业务 03 — 仪器 · 全球',
       title: ['从首尔', '走向世界。'],
       body: '与志同道合的伙伴携手，打造长期跨境项目。',
       list: [['医疗美容仪器', '专业医疗美容设备的供应合作。'], ['海外项目', '与各市场伙伴共同打造的美妆商业项目。'], ['全球合作', '与当地伙伴开展分销与合作业务。']]
     },
-    shop: { kicker: 'Online shop', body: 'SEOUL110 自营线上商城，为韩国及海外顾客提供生活用品、健康食品与功能性化妆品。', cta: '前往商城' },
-    journal: { kicker: 'Journal', title: '新闻与教育日程', empty: '已确认的新闻与教育日程将在此发布。', all: '查看全部' },
-    cta: { kicker: 'Contact', title: ['期待', '与您合作。'], body: '请告诉我们您的市场与目标，我们将为您安排合适的下一步。', btn: '商务合作咨询' },
+    shop: { kicker: '线上商城', body: 'SEOUL110 自营线上商城，为韩国及海外顾客提供生活用品、健康食品与功能性化妆品。', cta: '前往商城' },
+    journal: { kicker: '新闻', title: '新闻与教育日程', empty: '已确认的新闻与教育日程将在此发布。', all: '查看全部' },
+    cta: { kicker: '联系我们', title: ['期待', '与您合作。'], body: '请告诉我们您的市场与目标，我们将为您安排合适的下一步。', btn: '商务合作咨询' },
     brandsUi: {
-      kicker: 'Brands', title: '以不同的感性，遇见美。',
+      kicker: '品牌', title: '以不同的感性，遇见美。',
       body: '探索承载不同日常与喜好的品牌与产品。',
       explore: '了解品牌', lineup: '产品系列', details: '产品详情', viewDetail: '查看详情',
-      inquiryKicker: 'Brand & product inquiry', inquiryTitle: '欢迎咨询该品牌。',
+      inquiryKicker: '品牌与产品咨询', inquiryTitle: '欢迎咨询该品牌。',
       inquiryBody: '如有分销、合作或产品相关问题，请给我们留言。',
       inquiryBtn: '品牌咨询', productInquiry: '咨询该产品', others: '其他品牌',
       backList: '全部品牌', backBrand: '返回', viewShop: '在首尔仓库查看',
@@ -245,7 +257,7 @@ const T = {
     shopPending: '首尔仓库商城的官方网址确定后，将在此开放访问。',
     pages: {
       about: {
-        kicker: 'About', title: ['连接', '首尔之美。'],
+        kicker: '公司介绍', title: ['连接', '首尔之美。'],
         lead: 'SEOUL110 是源自首尔、与全球伙伴合作的美妆商业平台。我们根据合作伙伴的市场与目标，连接产品、知识与网络。',
         listTitle: '我们的业务',
         list: [['化妆品 OEM·ODM', '定制企划、开发与生产。', 'cosmetics'], ['教育事业', '研讨会、韩国研修与当地培训。', 'education'], ['仪器设备', '医疗美容设备供应合作。', 'global'], ['全球业务', '海外项目与合作。', 'global']],
@@ -253,7 +265,7 @@ const T = {
         flow: [['倾听', '了解您的市场、客户与目标。'], ['规划', '设计合适的产品、课程或项目。'], ['执行', '与我们的网络共同开发与交付。'], ['成长', '作为长期伙伴持续合作。']]
       },
       cosmetics: {
-        kicker: 'Business 01', title: ['化妆品', 'OEM·ODM'],
+        kicker: '业务 01', title: ['化妆品', 'OEM·ODM'],
         lead: '从最初的创意到可上市的成品，提供定制化企划、开发与生产解决方案。',
         listTitle: '服务内容',
         list: [['产品企划', '与您共同制定概念、目标市场与定位。'], ['配方开发', '为您的品牌开发专属配方与肤感。'], ['生产', '包装、生产直至交付的全程协调。']],
@@ -261,7 +273,7 @@ const T = {
         flow: [['咨询', '品牌、市场与预算'], ['企划', '产品概念与系列'], ['开发', '配方开发与打样'], ['生产', '包装与制造'], ['上市', '交付与后续支持']]
       },
       education: {
-        kicker: 'Business 02', title: ['教育事业'],
+        kicker: '业务 02', title: ['教育事业'],
         lead: '走进现场，学习韩国美妆。我们在韩国及当地为专业人士与团队开展培训。',
         listTitle: '课程',
         list: [['研讨会', '关于 K-Beauty 趋势、技术与产品的专题研讨。'], ['韩国访问研修', '包含首尔现场参访的专业研修课程。'], ['海外当地培训', '与当地伙伴合作的上门培训。']],
@@ -269,16 +281,16 @@ const T = {
         flow: [['咨询', '团队与目标'], ['课程设计', '主题、日程与形式'], ['培训', '韩国或当地'], ['后续', '下一阶段课程']]
       },
       global: {
-        kicker: 'Business 03', title: ['全球', '业务'],
+        kicker: '业务 03', title: ['全球', '业务'],
         lead: '通过仪器供应合作、海外项目与合作伙伴关系，连接首尔与世界市场。',
         listTitle: '业务范围',
         list: [['医疗美容仪器', '专业医疗美容设备的供应合作。'], ['海外项目', '与各市场伙伴共同打造的美妆商业项目。'], ['合作伙伴', '与当地伙伴的分销与合作业务。']],
         flowTitle: '合作流程',
         flow: [['咨询', '市场与意向'], ['评估', '契合度与机会'], ['协商', '范围与条件'], ['执行', '启动与长期发展']]
       },
-      journal: { kicker: 'Journal', title: ['新闻'], lead: '公司新闻与已确认的教育日程。', tabs: { news: '新闻', schedule: '教育日程' }, emptyTitle: '敬请期待', empty: { news: '公司新闻将在此发布。', schedule: '已确认的教育日程将在此发布。' } },
+      journal: { kicker: '新闻', title: ['新闻'], lead: '公司新闻与已确认的教育日程。', tabs: { news: '新闻', schedule: '教育日程' }, emptyTitle: '敬请期待', empty: { news: '公司新闻将在此发布。', schedule: '已确认的教育日程将在此发布。' } },
       contact: {
-        kicker: 'Contact', title: ['商务合作', '咨询'],
+        kicker: '联系我们', title: ['商务合作', '咨询'],
         lead: '请告诉我们您的公司、市场与计划，我们将通过邮件回复。',
         info: [['邮箱', '待公布'], ['地址', '韩国首尔'], ['语言', '韩语 · 英语 · 中文']],
         form: { name: '姓名', company: '公司名称', email: '邮箱', country: '国家 / 市场', interest: '感兴趣的业务', message: '咨询内容', agree: '我同意为处理本次咨询而收集和使用个人信息。', send: '发送咨询', options: ['化妆品 OEM·ODM', '品牌与产品咨询', '教育事业', '医疗美容仪器', '全球业务', '其他'] },
@@ -366,7 +378,7 @@ function renderFooter(t) {
         <div><b>${n.contact}</b><a href="${href('contact')}">${n.inquiry}</a>${CONFIG.SHOW_SHOP ? `<a href="#" data-shop>${n.shop} ↗</a>` : ''}</div>
       </nav>
     </div>
-    <div class="f-bottom"><span>SEOUL110 · SEOUL, KOREA</span><span>© 2026 SEOUL110. All rights reserved.</span></div>`;
+    <div class="f-bottom"><span>${t.footerPlace}</span><span>${t.footerRights}</span></div>`;
 }
 
 function cta(t) {
@@ -378,7 +390,7 @@ function home(t) {
   const c = t.cards, g = t.global;
   return `
   <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title" lang="en"><span>Seoul is a</span><span>beauty</span><span>state of mind.</span></h1>
+    <h1 id="hero-title" lang="${t.heroTitle.lang}">${t.heroTitle.lines.map(x => `<span>${x}</span>`).join('')}</h1>
     <div class="hero-art">
       <span class="g" aria-hidden="true"></span>
       <figure class="slot face">${img('face', 'eager')}</figure>
@@ -388,25 +400,24 @@ function home(t) {
   </section>
 
   <section class="philo reveal" aria-labelledby="philo-title">
-    <p class="philo-kicker"><span>${t.philosophy.label}</span><span lang="en">The meaning of 110</span></p>
+    <p class="philo-kicker"><span>${t.philosophy.label}</span><span>${t.meaning110}</span></p>
     <h2 id="philo-title" class="sr-only" lang="en">One. One. Open.</h2>
     <ol class="philo-digits">${t.philosophy.items.map(([n, en, loc, l], i) => `
-      <li><span class="d ${n === '0' ? 'zero' : 'one'}" aria-hidden="true">${n}</span><span class="w" lang="en" aria-hidden="true">${i === 2 ? 'Open.' : 'One.'}</span><span class="meta"><b lang="en">${en}</b><small lang="${l}">${loc}</small></span></li>`).join('')}
+      <li><span class="d ${n === '0' ? 'zero' : 'one'}" aria-hidden="true">${n}</span><span class="w" lang="en" aria-hidden="true">${i === 2 ? 'Open.' : 'One.'}</span><span class="meta"><b lang="${lang}">${lang === 'en' ? en : loc}</b></span></li>`).join('')}
     </ol>
     <div class="philo-tag">
-      <p class="philo-en" lang="en">Seoul, and everything beyond.</p>
-      <p class="philo-local" lang="${t.philosophy.tagLocal.lang}">${t.philosophy.tagLocal.text}</p>
+      <p class="philo-en" lang="${t.philosophy.tagLocal.lang}">${t.philosophy.tagLocal.text}</p>
     </div>
   </section>
 
   <section class="edit-blocks" aria-label="${t.nav.business}">
     <a class="eb eb-cos reveal" href="${href('cosmetics')}">
       <figure class="slot">${img('jar')}</figure>
-      <div class="eb-copy"><small>${c.cosmetics.label}</small><h2 class="display" lang="en">${br(c.cosmetics.title)}</h2><span class="bar" aria-hidden="true"></span><p>${c.cosmetics.body}</p><span class="more">${t.more} <span aria-hidden="true">→</span></span></div>
+      <div class="eb-copy"><small>${c.cosmetics.label}</small><h2 class="display">${br(c.cosmetics.title)}</h2><span class="bar" aria-hidden="true"></span><p>${c.cosmetics.body}</p><span class="more">${t.more} <span aria-hidden="true">→</span></span></div>
     </a>
     <a class="eb eb-edu reveal" href="${href('education')}">
       <figure class="slot">${img('edu')}</figure>
-      <div class="eb-copy"><small>${c.education.label}</small><h2 class="display" lang="en">${br(c.education.title)}</h2><span class="bar" aria-hidden="true"></span><p>${c.education.body}</p><span class="more">${t.more} <span aria-hidden="true">→</span></span></div>
+      <div class="eb-copy"><small>${c.education.label}</small><h2 class="display">${br(c.education.title)}</h2><span class="bar" aria-hidden="true"></span><p>${c.education.body}</p><span class="more">${t.more} <span aria-hidden="true">→</span></span></div>
     </a>
   </section>
 
@@ -604,6 +615,7 @@ function render() {
   document.title = name ? `${name} — SEOUL110` : 'SEOUL110 — Seoul is a beauty state of mind.';
   document.querySelector('meta[name=description]').content = META[lang];
   renderHeader(t);
+  $('.skip').textContent = t.skip;
   renderFooter(t);
   const view = {
     home: () => home(t),
