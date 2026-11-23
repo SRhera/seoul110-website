@@ -122,7 +122,7 @@ const T = {
     meaning110: '110의 의미',
     skip: '본문으로 건너뛰기',
     footerPlace: '서울 · 대한민국', footerRights: '© 2026 SEOUL110. 모든 권리 보유.',
-    heroTitle: { lang: 'ko', lines: [['sm', '아름다움의'], ['sm', '기준을 넘어,'], '서울만의', '감각으로.'] },
+    heroTitle: { lang: 'ko', lines: ['아름다움의', '기준을 넘어,', '서울만의 감각으로.'] },
     nav: { about: '회사소개', business: '사업분야', brands: '브랜드', journal: '소식', contact: '문의', cosmetics: '화장품 OEM·ODM', education: '교육사업', global: '글로벌 비즈니스', news: '소식', schedule: '교육 일정', inquiry: '사업 제휴 문의', company: '회사소개', shop: '서울창고 SHOP' },
     philosophy: {
       label: '기업 철학',
