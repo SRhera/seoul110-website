@@ -59,6 +59,7 @@ html[lang=ko] .nav,html[lang=zh] .nav{letter-spacing:.01em}
 .shop-m{display:none}
 .util{display:flex;align-items:center;gap:22px;flex-shrink:0}
 .util .shop{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);min-height:44px;display:inline-flex;align-items:center}
+#shopLink[hidden]{display:none!important}
 .lang{display:flex;align-items:center;font-size:15px;font-weight:500}
 .lang button{border:0;background:none;min-height:44px;min-width:44px;padding:0 13px;position:relative}
 .lang button+button::before{content:'';position:absolute;left:0;top:15px;bottom:15px;width:1.5px;background:var(--black)}

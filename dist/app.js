@@ -5,7 +5,8 @@
 const CONFIG = {
   CONTACT_EMAIL: 'seoul110.co@gmail.com',  // company email shown on the site and used for the direct-mail link
   CONTACT_ENDPOINT: '/api/contact',         // server function that delivers the inquiry form to the company inbox
-  SHOP_URL: ''         // SEOUL CHANGO (서울창고) shop address
+  SHOP_URL: '',        // SEOUL CHANGO (서울창고) shop address
+  SHOW_SHOP: false     // false hides every SEOUL CHANGO shop link and section; set true to show them again
 };
 
 /* IMAGE SLOTS — see IMAGE-ASSETS.md
@@ -344,8 +345,9 @@ function renderHeader(t) {
     <a class="top${BRAND_PAGES.includes(page) ? ' active' : ''}" href="#brands"${page === 'brands' ? ' aria-current="page"' : ''}>${n.brands}</a>
     ${dd('jr', n.journal, page === 'journal', [['journal', n.news, '&tab=news'], ['journal', n.schedule, '&tab=schedule']])}
     <a class="top${page === 'contact' ? ' active' : ''}" href="${href('contact')}"${page === 'contact' ? ' aria-current="page"' : ''}>${n.contact}</a>
-    <a class="shop-m" href="#" data-shop>${n.shop} ↗</a>`;
+    ${CONFIG.SHOW_SHOP ? `<a class="shop-m" href="#" data-shop>${n.shop} ↗</a>` : ''}`;
   $('#shopLink').textContent = n.shop + ' ↗';
+  $('#shopLink').hidden = !CONFIG.SHOW_SHOP;
   $('#lang').innerHTML = [['ko', 'KOR', '한국어'], ['en', 'ENG', 'English'], ['zh', '中文', '中文']]
     .map(([k, l, full]) => `<button type="button" data-lang="${k}" lang="${k}" class="${k === lang ? 'on' : ''}" aria-pressed="${k === lang}" aria-label="${full}">${l}</button>`).join('');
   document.querySelector('.logo').href = href('home');
@@ -361,7 +363,7 @@ function renderFooter(t) {
         <div><b>${n.business}</b><a href="${href('cosmetics')}">${n.cosmetics}</a><a href="${href('education')}">${n.education}</a><a href="${href('global')}">${n.global}</a></div>
         <div><b>${n.brands}</b>${visibleBrands().map(b => `<a href="${brandHref(b)}">${b.name.en}</a>`).join('')}</div>
         <div><b>${n.journal}</b><a href="${href('journal', '&tab=news')}">${n.news}</a><a href="${href('journal', '&tab=schedule')}">${n.schedule}</a></div>
-        <div><b>${n.contact}</b><a href="${href('contact')}">${n.inquiry}</a><a href="#" data-shop>${n.shop} ↗</a></div>
+        <div><b>${n.contact}</b><a href="${href('contact')}">${n.inquiry}</a>${CONFIG.SHOW_SHOP ? `<a href="#" data-shop>${n.shop} ↗</a>` : ''}</div>
       </nav>
     </div>
     <div class="f-bottom"><span>SEOUL110 · SEOUL, KOREA</span><span>© 2026 SEOUL110. All rights reserved.</span></div>`;
@@ -427,10 +429,10 @@ ${brandsSection(t, 'home')}
     <div class="global-art"><span class="g" aria-hidden="true"></span><figure class="slot global-img">${img('city')}</figure></div>
   </section>
 
-  <section class="section shop reveal" id="shop">
+  ${CONFIG.SHOW_SHOP ? `<section class="section shop reveal" id="shop">
     <div><p class="kicker">${t.shop.kicker}</p><h2 class="display" lang="en">Seoul<br><em>Chango</em></h2><span class="ko" lang="ko">서울창고</span></div>
     <div><p class="lead">${t.shop.body}</p><a class="btn" href="#" data-shop>${t.shop.cta} <span aria-hidden="true">↗</span></a></div>
-  </section>
+  </section>` : ''}
 
   <section class="section journal-home reveal">
     <div class="news-head"><div><p class="kicker">${t.journal.kicker}</p><h2 class="display">${t.journal.title}</h2></div><a class="more" href="${href('journal')}">${t.journal.all} <span aria-hidden="true">→</span></a></div>
@@ -574,7 +576,7 @@ function productDetail(t, b, p) {
       ${status ? `<p class="pstatus">${status}</p>` : ''}
       ${desc ? `<div class="pdesc">${desc.split('\n').filter(Boolean).map(x => `<p>${x}</p>`).join('')}</div>` : ''}
       <div class="pactions">
-        ${p.shopUrl ? `<a class="btn" href="${p.shopUrl}" target="_blank" rel="noopener">${u.viewShop} <span aria-hidden="true">↗</span></a>` : ''}
+        ${CONFIG.SHOW_SHOP && p.shopUrl ? `<a class="btn" href="${p.shopUrl}" target="_blank" rel="noopener">${u.viewShop} <span aria-hidden="true">↗</span></a>` : ''}
         <a class="btn ghost" href="#contact" data-inquiry="${b.name.en}|${p.name}">${u.productInquiry} <span aria-hidden="true">→</span></a>
       </div>
       <p class="pback"><a class="more" href="${brandHref(b)}"><span aria-hidden="true">←</span> ${u.backBrand} ${b.name.en}</a> <a class="more" href="#brands">${u.backList}</a></p>
