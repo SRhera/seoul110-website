@@ -503,14 +503,17 @@ textarea{min-height:150px;resize:vertical}
 
 /* ---------- Korean / Chinese versions: slogan and philosophy line set in the local typeface ---------- */
 /* Hero slogan: poster typefaces (tall, tight) so KO/ZH fill the hero like the English League Gothic line */
-.hero h1:not([lang=en]){-webkit-text-stroke:0;font-weight:400;text-transform:none;letter-spacing:-.02em;line-height:.98;font-size:10cqw;top:3%}
+.hero h1:not([lang=en]){-webkit-text-stroke:0;font-weight:400;text-transform:none;letter-spacing:-.02em;line-height:.96;font-size:13.2cqw;top:4%}
+.hero h1:not([lang=en]) span.sm{font-size:.4em;line-height:1.18;letter-spacing:-.01em}
+.hero h1:not([lang=en]) span.sm:last-of-type{margin-bottom:.5em}
 .hero h1[lang=ko]{font-family:'Black Han Sans','Noto Sans KR',sans-serif}
-.hero h1[lang=zh]{font-family:'Noto Sans SC',sans-serif;font-weight:900;letter-spacing:-.05em;line-height:1.02;font-size:9.2cqw}
+.hero h1[lang=zh]{font-family:'Noto Sans SC',sans-serif;font-weight:900;letter-spacing:-.05em;line-height:1.02;font-size:13.6cqw}
 .philo-en:not([lang=en]){-webkit-text-stroke:0;font-weight:900;text-transform:none;letter-spacing:-.04em;line-height:1.25;font-size:clamp(28px,3.4vw,58px)}
 .philo-en[lang=ko]{font-family:'Noto Sans KR',sans-serif}.philo-en[lang=zh]{font-family:'Noto Sans SC',sans-serif}
 .philo-digits .meta b:not([lang=en]){font-size:15px;letter-spacing:.04em}
 @media (max-width:700px){
-  .hero h1:not([lang=en]){font-size:clamp(52px,18vw,110px);line-height:1}
+  .hero h1:not([lang=en]){font-size:clamp(56px,19vw,120px);line-height:1}
+  .hero h1:not([lang=en]) span.sm{font-size:.42em}
   .philo-en:not([lang=en]){font-size:clamp(24px,7vw,36px)}
   .philo-digits .meta b:not([lang=en]){font-size:13px}
 }
