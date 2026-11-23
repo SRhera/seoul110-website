@@ -5,7 +5,7 @@
 const CONFIG = {
   CONTACT_EMAIL: 'seoul110.co@gmail.com',  // company email shown on the site and used for the direct-mail link
   CONTACT_ENDPOINT: '/api/contact',         // server function that delivers the inquiry form to the company inbox
-  SHOP_URL: '',        // SEOUL CHANGO (서울창고) shop address
+  SHOP_URL: 'https://seoulchanggo.com',  // SEOUL CHANGO (서울창고) shop address — site not open yet, so SHOW_SHOP stays false
   SHOW_SHOP: false     // false hides every SEOUL CHANGO shop link and section; set true to show them again
 };
 
