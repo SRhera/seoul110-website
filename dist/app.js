@@ -217,7 +217,7 @@ const T = {
     meaning110: '110 的含义',
     skip: '跳至正文',
     footerPlace: '韩国 · 首尔', footerRights: '© 2026 SEOUL110. 版权所有。',
-    heroTitle: { lang: 'zh', lines: ['美，超越标准；', '首尔，自成心境。'] },
+    heroTitle: { lang: 'zh', lines: [['sm', '美，超越标准；'], '首尔，', '自成心境。'] },
     nav: { about: '公司介绍', business: '业务领域', brands: '品牌', journal: '新闻', contact: '联系我们', cosmetics: '化妆品 OEM·ODM', education: '教育事业', global: '全球业务', news: '新闻', schedule: '教育日程', inquiry: '商务合作咨询', company: '公司介绍', shop: '首尔仓库 SHOP' },
     philosophy: {
       label: '企业理念',
@@ -390,7 +390,7 @@ function home(t) {
   const c = t.cards, g = t.global;
   return `
   <section class="hero" aria-labelledby="hero-title">
-    <h1 id="hero-title" lang="${t.heroTitle.lang}">${t.heroTitle.lines.map(x => `<span>${x}</span>`).join('')}</h1>
+    <h1 id="hero-title" lang="${t.heroTitle.lang}">${t.heroTitle.lines.map(x => Array.isArray(x) ? `<span class="${x[0]}">${x[1]}</span>` : `<span>${x}</span>`).join('')}</h1>
     <div class="hero-art">
       <span class="g" aria-hidden="true"></span>
       <figure class="slot face">${img('face', 'eager')}</figure>
