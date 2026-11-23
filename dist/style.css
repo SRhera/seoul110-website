@@ -500,3 +500,15 @@ textarea{min-height:150px;resize:vertical}
 .bgrid.small{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:1024px){.f-links{grid-template-columns:repeat(3,auto)}.bgrid.small{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){.f-links{grid-template-columns:1fr 1fr}.bgrid.small{grid-template-columns:1fr}}
+
+/* ---------- Korean / Chinese versions: slogan and philosophy line set in the local typeface ---------- */
+.hero h1:not([lang=en]){-webkit-text-stroke:0;font-weight:900;text-transform:none;letter-spacing:-.05em;line-height:1.18;font-size:5.2cqw;top:6%}
+.hero h1[lang=ko]{font-family:'Noto Sans KR',sans-serif}.hero h1[lang=zh]{font-family:'Noto Sans SC',sans-serif}
+.philo-en:not([lang=en]){-webkit-text-stroke:0;font-weight:900;text-transform:none;letter-spacing:-.04em;line-height:1.25;font-size:clamp(28px,3.4vw,58px)}
+.philo-en[lang=ko]{font-family:'Noto Sans KR',sans-serif}.philo-en[lang=zh]{font-family:'Noto Sans SC',sans-serif}
+.philo-digits .meta b:not([lang=en]){font-size:15px;letter-spacing:.04em}
+@media (max-width:700px){
+  .hero h1:not([lang=en]){font-size:clamp(34px,10.5vw,64px);line-height:1.15}
+  .philo-en:not([lang=en]){font-size:clamp(24px,7vw,36px)}
+  .philo-digits .meta b:not([lang=en]){font-size:13px}
+}
