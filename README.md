@@ -51,6 +51,9 @@ https://myaccount.google.com/apppasswords → create one named "SEOUL110 website
 16 characters into Vercel. Never put it in code. Until it is set the form shows a "could not be
 sent" message (with the direct email link) and keeps what the visitor typed.
 
+After delivery, the visitor gets an automatic confirmation email in the site language (KO/EN/ZH,
+fixed text, Reply-To = company inbox). Set `AUTO_REPLY=false` to turn it off.
+
 Spam protection: hidden honeypot field, minimum fill time, same-origin + JSON-only requests,
 field length/format checks, and a per-IP limit (5 per 10 minutes).
 
